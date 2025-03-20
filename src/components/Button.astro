@@ -1,0 +1,7 @@
+---
+const {class: className, id, href} = Astro.props
+---
+
+<a class=`${className} inline-block px-4 py-2 rounded-sm cursor-pointer transition-opacity ease-in duration-150 hover:opacity-90` id={id} href={href}>
+    <slot />
+</a>

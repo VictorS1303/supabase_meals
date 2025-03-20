@@ -1,1 +1,48 @@
 @import "tailwindcss";
+
+:root
+{
+    --primary-bg-color: #fff;
+    --secondary-bg-color: #3ecf8e;
+    --tertiary-bg-color: #222;
+
+    --primary-text-color: #fff;
+    --secondary-text-color: #3ecf8e;
+    --tertiary-text-color: #222;
+}
+
+
+@layer components
+{
+     /* Bg Colors */
+     .primary-bg-color
+     {
+         @apply bg-[var(--primary-bg-color)];
+     } 
+     
+     .secondary-bg-color
+     {
+         @apply bg-[var(--secondary-bg-color)];
+     }
+ 
+     .tertiary-bg-color
+     {
+         @apply bg-[var(--tertiary-bg-color)];
+     }
+    
+    /* Text Colors */
+    .primary-text-color
+    {
+        @apply text-[var(--primary-text-color)];
+    } 
+    
+    .secondary-text-color
+    {
+        @apply text-[var(--secondary-text-color)];
+    }
+
+    .tertiary-text-color
+    {
+        @apply text-[var(--tertiary-text-color)];
+    }
+}
