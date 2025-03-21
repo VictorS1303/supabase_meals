@@ -1,6 +1,5 @@
 ---
 import Layout from '../layouts/Layout.astro'
-import Hero from '../components/Hero.astro'
 import Navigation from '../components/Navigation.astro'
 
 const links =
@@ -8,14 +7,10 @@ const links =
     {
         href: '/meals',
         text: 'Browse Meals'
-    },
-    {
-        href: '/meals',
     }
 ]
 ---
 
-<Layout title="Welcome!">
-    <Navigation links={links} currentPage="/"/>
-    <Hero />
+<Layout>
+    <Navigation {links} currentPage="/meals"/>
 </Layout>

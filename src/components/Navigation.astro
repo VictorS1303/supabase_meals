@@ -1,0 +1,78 @@
+---
+const { class: className, id: id, links, currentPage } = Astro.props;
+const isHome = currentPage === "/";
+---
+
+<button
+    class="btn mobile-nav-toggle-btn absolute z-[2000] top-[20px] right-[30px] text-2xl cursor-pointer secondary-text-color transition-right duration-400 ease-in md:hidden"
+    id="mobile_nav_toggle_btn"
+>
+    <i class="fas fa-bars"></i>
+</button>
+
+<nav
+    class={`${className} primary-bg-color fixed top-0 z-[1000] grid h-screen w-[250px] -right-[250px] items-center justify-between px-24 text-center border-l-2 border-[#3ecf8e] shadow-md transition-right duration-400 ease-in md:static md:flex md:h-20 md:w-screen md:border-b-2 md:border-[#3ecf8e] md:border-l-0`}
+    id="main_nav"
+>
+    <div
+        class="absolute bottom-4 left-1/2 transform -translate-x-1/2 md:static md:ml-12 md:transform-none"
+    >
+        {
+            isHome ? (
+                <h2 class="text-2xl whitespace-nowrap">
+                    <i class="fa-solid fa-bowl-food mr-2" />
+                    <span class="secondary-text-color">Supa</span><span class="tertiary-text-color">Meals</span>
+                </h2>
+            ) : (
+                <a href="/">
+                    <h2 class="text-2xl whitespace-nowrap">
+                        <i class="fa-solid fa-bowl-food mr-2" />
+                        <span class="secondary-text-color">Supa</span><span class="tertiary-text-color">Meals</span>
+                    </h2>
+                </a>
+            )
+        }
+    </div>
+
+    <ul
+        class="text-xl whitespace-nowrap flex justify-center items-center absolute inset-0 md:static md:flex md:translate-x-0 md:translate-y-0"
+    >
+        {
+            links.map((link: any) => (
+                <li class="text-xl text-center">
+                    <a
+                        href={link.href}
+                        class={`${link.href === currentPage ? "text-[#3ecf8e] pointer-events-none" : "hover:text-[#3ecf8e] transition-text ease-in duration-150"}`}
+                    >
+                        {link.text}
+                    </a>
+                </li>
+            ))
+        }
+    </ul>
+</nav>
+
+<script>
+    const mobileMenuToggleBtn = document.querySelector(
+        "#mobile_nav_toggle_btn",
+    );
+    const mainNav = document.querySelector("#main_nav");
+    const menuIcon = mobileMenuToggleBtn?.querySelector("i"); // Assuming the icon is an <i> element inside the button
+
+    mobileMenuToggleBtn?.addEventListener("click", toggleMobileMenu);
+
+    function toggleMobileMenu() {
+        if (mobileMenuToggleBtn) {
+            mobileMenuToggleBtn.classList.toggle("right-[270px]");
+            mainNav?.classList.toggle("right-0");
+        }
+
+        updateMobileMenuToggleButtonIcon();
+    }
+
+    function updateMobileMenuToggleButtonIcon() {
+        mobileMenuToggleBtn?.classList.contains("right-[270px]")
+            ? menuIcon?.classList.replace("fa-bars", "fa-times")
+            : menuIcon?.classList.replace("fa-times", "fa-bars");
+    }
+</script>
