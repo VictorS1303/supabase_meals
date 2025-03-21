@@ -2,6 +2,8 @@
 import Layout from '../layouts/Layout.astro'
 import Hero from '../components/Hero.astro'
 import Navigation from '../components/Navigation.astro'
+import Button from '../components/Button.astro'
+
 
 const links =
 [
@@ -17,5 +19,9 @@ const links =
 
 <Layout title="Welcome!">
     <Navigation links={links} currentPage="/"/>
-    <Hero />
+    <Hero heroParagraphText="The only site you need to find your next meal">
+        <Button class="primary-text-color secondary-bg-color mt-4 text-xl" href="/meals">
+            <i class="fa-solid fa-bowl-food mr-3"></i> Browse Meals
+        </Button>
+    </Hero>
 </Layout>

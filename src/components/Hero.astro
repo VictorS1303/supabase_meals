@@ -1,7 +1,8 @@
 ---
 import Section from './Section.astro'
 import HeroHeader from './HeroHeader.astro'
-import Button from './Button.astro'
+
+const {heroParagraphText} = Astro.props
 ---
 
 <Section class="home-hero h-screen w-screen relative" id="home_hero">
@@ -9,14 +10,12 @@ import Button from './Button.astro'
     <img src="/public/images/hero/home_hero_bg.jpg" class="h-full w-full object-cover absolute inset-0 z-0"/>
 
     <div class="text-center z-50 absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
-        <HeroHeader />
+        <HeroHeader>
+            <span class="secondary-text-color">Supa</span>Meals
+        </HeroHeader>
 
-        <p class="text-xl my-3 primary-text-color">
-            The only site you need to find your next meal
-        </p>
-
-        <Button class="primary-text-color secondary-bg-color mt-4 text-xl" href="/meals">
-            <i class="fa-solid fa-bowl-food mr-3"></i> Browse Meals
-        </Button>
+        <p class="text-xl my-3 primary-text-color">{heroParagraphText}</p>
+        
+        <slot />
     </div>
 </Section>

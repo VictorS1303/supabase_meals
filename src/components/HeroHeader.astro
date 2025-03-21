@@ -3,5 +3,7 @@ import Header from './Header.astro'
 ---
 
 <Header class="header hero-header" id="hero_header">
-    <h1 class="text-6xl primary-text-color"><span class="secondary-text-color">Supa</span>Meals</h1>
+    <h1 class="text-6xl primary-text-color">
+        <slot />
+    </h1>
 </Header>
