@@ -10,11 +10,6 @@ const {heroParagraphText} = Astro.props
     <img src="/public/images/hero/home_hero_bg.jpg" class="h-full w-full object-cover absolute inset-0 z-0"/>
 
     <div class="text-center z-50 absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
-        <HeroHeader>
-            <span class="secondary-text-color">Supa</span>Meals
-        </HeroHeader>
-
-        <p class="text-xl my-3 primary-text-color">{heroParagraphText}</p>
         
         <slot />
     </div>

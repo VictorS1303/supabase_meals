@@ -1,26 +1,35 @@
 ---
-import Layout from '../layouts/Layout.astro'
-import Hero from '../components/Hero.astro'
-import Navigation from '../components/Navigation.astro'
-import Button from '../components/Button.astro'
+import Layout from "../layouts/Layout.astro";
+import Navigation from "../components/Navigation.astro";
+import Hero from "../components/Hero.astro";
+import HeroHeader from "../components/HeroHeader.astro";
+import HeroParagraph from "../components/HeroParagraph.astro";
+import Button from "../components/Button.astro";
 
-
-const links =
-[
+const links = [
     {
-        href: '/meals',
-        text: 'Browse Meals'
+        href: "/meals",
+        text: "Browse Meals",
     },
     {
-        href: '/meals',
-    }
-]
+        href: "/meals",
+    },
+];
 ---
 
 <Layout title="Welcome!">
-    <Navigation links={links} currentPage="/"/>
-    <Hero heroParagraphText="The only site you need to find your next meal">
-        <Button class="primary-text-color secondary-bg-color mt-4 text-xl" href="/meals">
+    <Navigation links={links} currentPage="/" />
+
+    <Hero>
+        <HeroHeader>
+            <span class="secondary-text-color">Supa</span><span>Meals</span>
+        </HeroHeader>
+        <HeroParagraph />
+        <p class="text-xl my-3 primary-text-color">The only site you need to find your next meal</p>
+        <Button
+            class="primary-text-color secondary-bg-color mt-4 text-xl"
+            href="/meals"
+        >
             <i class="fa-solid fa-bowl-food mr-3"></i> Browse Meals
         </Button>
     </Hero>
