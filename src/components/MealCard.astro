@@ -2,13 +2,13 @@
 const {class: className, id, alt, mealTitle, preparationTime, mealImage} = Astro.props
 ---
 
-<article class={`${className} relative h-[200px] w-[300px] m-20 overflow-hidden rounded-md group shadow-md cursor-pointer`} id={id}>
+<article class={`${className} relative h-[200px] w-[300px] overflow-hidden rounded-md group shadow-md cursor-pointer`} id={id}>
     <img src={mealImage} 
          class="h-full w-full object-cover transition-transform duration-300 ease-in-out group-hover:scale-110" 
          alt={alt}>
 
     <!-- Meal Card Info Container (Initially Moved Down) -->
-    <div class="meal-card-info-container absolute bottom-0 w-full h-[50%] px-4 bg-white text-center rounded-b-md shadow-md secondary-text-color transition-transform duration-300 ease-in-out translate-y-[55%] group-hover:translate-y-[20%]">
+    <div class="meal-card-info-container absolute bottom-0 w-[300px] h-[50%] px-4 bg-white text-center rounded-b-md shadow-md secondary-text-color transition-transform duration-300 ease-in-out translate-y-[55%] group-hover:translate-y-[20%]">
         <!-- Meal Name (Always Visible) -->
         <h2 class="meal-name text-xl py-2">{mealTitle}</h2>
 
