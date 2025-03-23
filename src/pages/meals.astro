@@ -1,12 +1,14 @@
 ---
-import Layout from "../../layouts/Layout.astro";
-import Navigation from "../../components/Navigation.astro";
-import MealCard from "../../components/MealCard.astro";
-import Section from "../../components/Section.astro";
-import Header from "../../components/Header.astro";
-import Hero from "../../components/Hero.astro";
-import HeroHeader from "../../components/HeroHeader.astro";
-import HeroParagraph from "../../components/HeroParagraph.astro";
+const { data, pagination } = Astro.props;
+
+import Layout from "../layouts/Layout.astro";
+import Navigation from "../components/Navigation.astro";
+import MealCard from "../components/MealCard.astro";
+import Section from "../components/Section.astro";
+import Header from "../components/Header.astro";
+import Hero from "../components/Hero.astro";
+import HeroHeader from "../components/HeroHeader.astro";
+import HeroParagraph from "../components/HeroParagraph.astro";
 
 const links = [
     {
@@ -63,16 +65,17 @@ const mealCards = [
         alt: "meal card image",
         mealTitle: "Burger with fries",
         preparationTime: "30-40",
-        id: 6,
+        id: 7,
     },
     {
         mealImage: "/images/hero/home_hero_bg.jpg",
         alt: "meal card image",
         mealTitle: "Burger with fries",
         preparationTime: "30-40",
-        id: 6,
+        id: 8,
     },
 ];
+
 ---
 
 <Layout>
@@ -88,17 +91,17 @@ const mealCards = [
     <Header>
         <h2 class="secondary-text-color text-center mt-20 text-4xl">Meals</h2>
     </Header>
+
     <Section
         class="meal-cards flex justify-around w-screen items-center"
         id="meal_cards"
     >
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12 my-12 px-8">
+        <div
+            class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12 my-12 px-8"
+        >
             {
                 mealCards.map((mealCard) => (
-                    <a
-                        href={`/meals/${mealCard.id}`}
-                        key={mealCard.id}
-                    >
+                    <a href={`/meals/${mealCard.id}`}>
                         <MealCard
                             mealImage={mealCard.mealImage}
                             alt={mealCard.alt}
